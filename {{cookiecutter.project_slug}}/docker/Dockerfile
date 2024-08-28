@@ -1,5 +1,5 @@
 # Usa una imagen base de Python
-FROM python:3.12.0-alpine3.18
+FROM python:3.12.2-alpine3.19
 
 # Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
@@ -11,7 +11,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copia el código fuente al directorio de trabajo
-COPY . .
+COPY src/* .
 
 # Define el comando por defecto para ejecutar la aplicación
-CMD ["python", "app.py"]
+CMD ["python", "main.py"]
